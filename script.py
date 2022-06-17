@@ -17,6 +17,7 @@ suma, resta, multiplicacion, division, saliir, control de errores...
 definir el resultado:
 devolver el resultado de cada operacion'''
 
+#creando funcion
 def calculadora_amigable(opc, num_1,num_2):
     ''' calculadora de operaciones basicas
     parametros:
@@ -28,24 +29,28 @@ def calculadora_amigable(opc, num_1,num_2):
     '''
     if opc.isdigit():
         opc=int(opc) #se renombra
-        if opc==1:
-            resultado=num_1+num_2
-        elif opc==2:
-            resultado=num_1-num_2
-        elif opc==3:
-            resultado=num_1*num_2
-        elif opc==4:
-            resultado=num_1/num_2
-        elif opc==5:
-            exit()
-        else:
-            resultado='la opcion ingresada es invalida'
+        try:
+            if opc==1:
+                resultado=num_1+num_2
+            elif opc==2:
+                resultado=num_1-num_2
+            elif opc==3:
+                resultado=num_1*num_2
+            elif opc==4:
+                resultado=num_1/num_2
+            elif opc==5:
+                exit()
+            else:
+                resultado='la opcion ingresada es invalida'
+        except ZeroDivisionError:
+            resultado='el segundo número ingresado es cero, por lo que la division da error'
     else:
-        resultado='no se puede ejecutar, debe ingresar número'
+        resultado='no se puede ejecutar, debe ingresar número en la opción'
 
     return resultado 
+# Main code
 
-
+#mostrando menú
 print('''
 Menú
 [1] Suma
@@ -55,7 +60,14 @@ Menú
 [5] Salir
 ''')
 
-opcion_deseada=input('Ingrese la opción que desea: ')
-num_1=float(input('Ingrese el primer número: 1'))
-num_2=float(input('Ingrese el segundo número: '))
-calculadora_amigable(opcion_deseada, num_1, num_2)
+#solicitando números
+try:
+    opcion_deseada=input('Ingrese la opción que desea: ')
+    num_1=float(input('Ingrese el primer número: '))
+    num_2=float(input('Ingrese el segundo número: '))
+except ValueError:
+    resultado='la sintaxis del codigo es incorrecta'
+    
+#llamando función
+resultado_operacion=calculadora_amigable(opcion_deseada, num_1, num_2)
+print(resultado_operacion)
