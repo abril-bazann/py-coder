@@ -67,7 +67,27 @@ try:
     num_2=float(input('Ingrese el segundo número: '))
 except ValueError:
     resultado='la sintaxis del codigo es incorrecta'
-    
+
 #llamando función
 resultado_operacion=calculadora_amigable(opcion_deseada, num_1, num_2)
 print(resultado_operacion)
+
+#3ra función ejemplo de practica
+#*args(se puede cambiar args por otro nombre pero siempre debe tener *)=varios argumentos desconocidos y sin valores definidos por defult. es como un diccionario, lista o tupla que se recorre
+#**kwargs= cantidad de datos con datos por default
+#siempre los primeros parámetros fijos, segundo los args, luego los kwags
+def sumatoria(*lista_numeros):
+    for number in lista_numeros:
+        print(number)
+
+sumatoria(1,2,3,4)
+
+#4ta función ejemplo
+
+def persona(**datos_personales):
+    for dato_personal in datos_personales:
+        print(f'{dato_personal} es {datos_personales[dato_personal]}', end=', ')
+
+persona(nombre='Abril', apellido='Bazán', ciudad='Córdoba', pais='Argentina')
+print('\n')
+persona(nombre='Gonzalo', apellido='García', ciudad='Buenos Aires', pais='Argentina', edad=24, mascota=True)
