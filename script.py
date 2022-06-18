@@ -131,3 +131,39 @@ perrito1.caminar(22)
 
 print(perrito1) 
 #sin el __str__ imprime: <__main__.Perro object at 0x7f58988caf90>: objeto en tal direccion de memoria
+
+class Persona:
+  especie='humano' #atributos de clase
+  caminar='bípedo'
+  def __init__(self, nombre, apellido, edad):
+    #atributos de instancia: lo que podría diferenciar a cada perro
+    self.nombre=nombre #la clase Perro tiene un nombre
+    self.apellido=apellido
+    self.edad=edad
+
+  def saludar(self): #siempre pasar argumento self
+    return(f'hola! mi nombre es {self.nombre} {self.apellido} y tengo {self.edad} años')
+  def __str__(self): #métodos especiales
+    return(f'hola! mi nombre es {self.nombre} {self.apellido} y tengo {self.edad} años')
+  def signo(self, signo):
+    return(f'hola, soy {self.nombre} y mi signo es {signo}')
+  def cumple(self):
+    print("WIIII estoy cumpliendo años") #no se debe imprimir solo aumentar la edad
+    self.edad+=1
+  def estudiando(self):
+    print('hola, estoy estudiando')
+  def curso(self, materia):
+    return(f'estoy en el mejor curso de {materia}')
+
+persona1=Persona('Abril', 'Bazán', 19)
+print(persona1)
+persona1.cumple()
+print(persona1) #acá se suma 1 año en la edad
+persona1.estudiando()
+print(persona1.curso('python'))
+print(persona1.signo('tauro'))
+print(persona1.especie)
+print(persona1.caminar)
+
+
+#Posiblemente el segundo método más utilizado, con el que se crea una representación del objeto con significado para las personas. 
