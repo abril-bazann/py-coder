@@ -91,3 +91,43 @@ def persona(**datos_personales):
 persona(nombre='Abril', apellido='Bazán', ciudad='Córdoba', pais='Argentina')
 print('\n')
 persona(nombre='Gonzalo', apellido='García', ciudad='Buenos Aires', pais='Argentina', edad=24, mascota=True)
+
+#clases y objetos
+class Perro: #init(método) se llama cuando creo un objeto de esa clase. es un constructor
+  especie='Mamífero'
+  def __init__(self, nombre, raza, edad):
+    #atributos de instancia: lo que podría diferenciar a cada perro
+    self.nombre=nombre #la clase Perro tiene un nombre
+    self.raza=raza
+    self.edad=edad
+
+  def ladrar(self): #siempre pasar argumento. métodos definidos por el usuario
+    print('GUAU, estoy ladrando!!!!!')
+  def caminar(self, pasos):
+    print(f'hola, soy {self.nombre} y estoy caminando {pasos} pasos')
+
+  def __str__(self):
+    return(f'hola, soy un perro y me llamo {self.nombre}')
+#el __ 
+#self siempre se pasa primero. 
+perrito1=Perro("Kairo", "Ovejero", 7)
+perrito2=Perro("Milo", "Labrador", 15)
+
+print(f"Mi perrito se llama {perrito1.nombre} es de raza {perrito1.raza} y tiene {perrito1.edad} años ")
+print(f"Mi perrito se llama {perrito2.nombre} es de raza {perrito2.raza} y tiene {perrito2.edad} años ")
+
+perrito3=Perro('Peki', 'Pekines', 19)
+
+print(perrito3.nombre)
+print(perrito3.raza)
+print(perrito3.edad) #acceder a atributos
+print(perrito3.especie) #accedo a atributo de clase
+
+#funciones creadas por usuario
+perrito1.ladrar()
+perrito2.ladrar()
+perrito3.ladrar()
+perrito1.caminar(22)
+
+print(perrito1) 
+#sin el __str__ imprime: <__main__.Perro object at 0x7f58988caf90>: objeto en tal direccion de memoria
