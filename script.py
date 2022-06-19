@@ -149,9 +149,9 @@ class Persona:
     return(f'hola, soy {self.nombre} y mi signo es {signo}')
   def cumple(self):
     self.edad+=1
-    print("WIIII estoy cumpliendo años") #no se debe imprimir solo aumentar la edad
+    return("WIIII estoy cumpliendo años") #no se debe imprimir solo aumentar la edad
   def estudiando(self):
-    print('hola, estoy estudiando')
+    return('hola, estoy estudiando')
   def curso(self, materia):
     return(f'estoy en el mejor curso de {materia}')
 
