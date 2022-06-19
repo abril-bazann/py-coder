@@ -148,18 +148,19 @@ class Persona:
   def signo(self, signo):
     return(f'hola, soy {self.nombre} y mi signo es {signo}')
   def cumple(self):
-    print("WIIII estoy cumpliendo años") #no se debe imprimir solo aumentar la edad
     self.edad+=1
+    print("WIIII estoy cumpliendo años") #no se debe imprimir solo aumentar la edad
   def estudiando(self):
     print('hola, estoy estudiando')
   def curso(self, materia):
     return(f'estoy en el mejor curso de {materia}')
 
+#NO USAR PRINTS DENTRO DE UN MÉTODO. UTILIZAR RETURN. LUEGO IMPRIMIR AFUERA
 persona1=Persona('Abril', 'Bazán', 19)
 print(persona1)
-persona1.cumple()
+print(persona1.cumple())
 print(persona1) #acá se suma 1 año en la edad
-persona1.estudiando()
+print(persona1.estudiando())
 print(persona1.curso('python'))
 print(persona1.signo('tauro'))
 print(persona1.especie)
@@ -167,3 +168,12 @@ print(persona1.caminar)
 
 
 #Posiblemente el segundo método más utilizado, con el que se crea una representación del objeto con significado para las personas. 
+
+
+
+#otro método especial: len
+'''
+Podríamos usar la función len para obtener el número de elementos que tenga el objeto. 
+Pero si probamos con el objeto nos encontraremos con un error.
+Esto es así porque la clase no ha implementado aún el método __len__. Un problema se puede solucionar de tomar fácil al incluir este método.
+'''
