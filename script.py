@@ -179,3 +179,103 @@ Podríamos usar la función len para obtener el número de elementos que tenga e
 Pero si probamos con el objeto nos encontraremos con un error.
 Esto es así porque la clase no ha implementado aún el método __len__. Un problema se puede solucionar de tomar fácil al incluir este método.
 '''
+
+#ecapsulamiento: atributo PRIVADO. __dos guiones bajos
+class Persona:
+    tipo = "Humano"  #Dato al que pueden acceder PUBLICO
+    __sueldo = 2000  #No quiero que accedan a mi cuenta PRIVADO
+
+    def __init__(self, nombre, apellido):
+        self.nombre = nombre  #NO me molesta que sepan mi nombre  PUBLICO
+        self.__apellido = apellido #No quiero que sepan mi apellido  PRIVADO
+
+    def __soy_feliz(self):   #PRIVADO
+        print("No les importa ¬¬")
+
+    def edad(self):   #PUBLICO
+        return 37 #Soy joven aún no miento con mi edad
+
+persona1 = Persona("Fran", "Di Martino")
+
+print(f"Resultado1: {persona1.tipo}\n")
+#print(f"Resultado2: {persona1.__sueldo}\n")
+print(f"Resultado3: {persona1.nombre}\n")
+#print(f"Resultado4: {persona1.__apellido}\n")
+#print(f"Resultado5: {persona1.__soy_feliz()}\n")
+print(f"Resultado6: {persona1.edad()}\n")
+
+#de afuera no se puede acceder
+
+'''
+¿Cómo encapsular correctamente?
+Lo ideal es siempre dejar todo privado, y solo permitir que se pueda acceder y/o modificar los datos por medio de los métodos públicos get y set. Donde el programador es el que decide a qué se podra acceder y a que no, y principalmente que cosas se van a poder modificar o no desde afuera (FUNDAMENTAL).
+get: todo datos
+set: modifico datos
+'''
+
+class Jugador: #para acceder y devolver los atributos privados con métodos por FUERA   
+    def __init__(self, nombre, apellido, perro, edad):
+
+        #Se suelen hacer privados todos los atributos
+         self.__nombre = nombre
+         self.__apellido = apellido
+         self.__perro=perro
+         self.__edad=edad
+
+    #Se generan metodos get PUBLICOS de los atributos 
+    #que quieres que sean visibles.
+    def get_nombre(self):
+        return self.__nombre
+
+    def get_apellido(self):
+        return self.__apellido
+    
+    def get_perro(self):
+        return self.__perro
+
+    def get_edad(self):
+        return self.__edad
+
+    #Se generan metodos set PUBLICOS de los atributos 
+    #que quieres que sean visibles y MODIFICABLES
+    def set_nombre(self, nombre):
+        print("estoy cambiando mi nombre, de manera correcta")
+        self.__nombre = nombre
+
+    def set_apellido(self, apellido):
+        print("estoy cambiando mi apellido, de manera correcta")
+        self.__apellido = apellido
+
+    def set_perro(self, perro):
+        print("estoy cambiando mi perro, de manera correcta")
+        self.__perro = perro
+
+    def set_edad(self, edad):
+      if edad>0:
+        self.__edad = edad #edad positiva no negativa tipo -20
+
+jugador1 = Jugador("Brenda", "Benitez", perrito1, 21)
+#gets de brenda
+print(jugador1.get_apellido())  #Para acceder al apellido
+print(jugador1.get_nombre())  #Para acceder al nombre()
+print(jugador1.get_edad()) 
+#sets para cambiar a ricardo
+jugador1.set_apellido("Gutierrez")  #Para modificar al apellido
+jugador1.set_nombre("Ricardo")  #Para acceder al nombre
+jugador1.set_edad(29)
+#gets de ricardo
+print(jugador1.get_apellido())  #Para acceder al apellido
+print(jugador1.get_nombre())  #Para acceder al nombre
+print(jugador1.get_edad()) 
+print(jugador1.get_perro().raza)
+
+
+
+apellido_de_jugador_1=jugador1.get_apellido()
+#print(jugador1._goles)  #qué pasa con los goles
+
+
+
+apellido_de_jugador_1=jugador1.get_apellido()
+#print(jugador1._goles)  #qué pasa con los goles
+
