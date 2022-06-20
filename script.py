@@ -272,10 +272,7 @@ print(jugador1.get_perro().raza)
 
 
 apellido_de_jugador_1=jugador1.get_apellido()
-#print(jugador1._goles)  #qué pasa con los goles
+print(apellido_de_jugador_1)
 
 
-
-apellido_de_jugador_1=jugador1.get_apellido()
-#print(jugador1._goles)  #qué pasa con los goles
 
