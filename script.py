@@ -135,11 +135,12 @@ print(perrito1)
 class Persona:
   especie='humano' #atributos de clase
   caminar='bípedo'
-  def __init__(self, nombre, apellido, edad):
+  def __init__(self, nombre, apellido, edad, perro):
     #atributos de instancia: lo que podría diferenciar a cada perro
     self.nombre=nombre #la clase Perro tiene un nombre
     self.apellido=apellido
     self.edad=edad
+    self.perro=perro
 
   def saludar(self): #siempre pasar argumento self
     return(f'hola! mi nombre es {self.nombre} {self.apellido} y tengo {self.edad} años')
@@ -156,7 +157,7 @@ class Persona:
     return(f'estoy en el mejor curso de {materia}')
 
 #NO USAR PRINTS DENTRO DE UN MÉTODO. UTILIZAR RETURN. LUEGO IMPRIMIR AFUERA
-persona1=Persona('Abril', 'Bazán', 19)
+persona1=Persona('Abril', 'Bazán', 19, perrito1)
 print(persona1)
 print(persona1.cumple())
 print(persona1) #acá se suma 1 año en la edad
@@ -165,6 +166,7 @@ print(persona1.curso('python'))
 print(persona1.signo('tauro'))
 print(persona1.especie)
 print(persona1.caminar)
+print(persona1.perro)
 
 
 #Posiblemente el segundo método más utilizado, con el que se crea una representación del objeto con significado para las personas. 
