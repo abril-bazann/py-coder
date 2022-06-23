@@ -275,4 +275,71 @@ apellido_de_jugador_1=jugador1.get_apellido()
 print(apellido_de_jugador_1)
 
 
+#class Atleta
+class Atleta:
+
+ 
+  def __init__(self, nombre, apellido, altura, peso, telefono):
+    
+    self.__nombre = nombre
+    self.__apellido = apellido
+    self.__altura=altura
+    self.__peso=peso
+    self.telefono=telefono
+    
+
+ #método para que se imprima
+  def __str__(self):
+    return f"Atleta:  {self.__nombre}  {self.__apellido} "
+
+  def mostrar(self):
+    print(f"NOMBRE: {self.__nombre}\nAPELLIDO: {self.__apellido}\n")
+    
+
+  #Propios de la persona...
+
+  #Creacion de getters y setters
+
+
+  def getNombre(self):
+    return self.__nombre
+
+  def setNombre(self, nombreNuevo): #Modificar la edad :)
+    self.__nombre=nombreNuevo
+
+  def getApellido(self):
+    return self.__apellido
+
+  def setApellido(self, apellidoNuevo): #Modificar la edad :)
+    self.__apellido=apellidoNuevo
+
+  def getAltura(self):
+    return self.__altura
+
+  def setAltura(self, alturaNueva): #Modificar la edad :)
+    self.__altura=alturaNueva
+
+  def getPeso(self):
+    return self.__peso
+
+  def setPeso(self, pesoNuevo): #Modificar la edad :)
+    self.__peso=pesoNuevo
+  
+  def getImc(self):
+    imc= self.__peso/(self.__altura**2)
+    if imc<18.5:
+      return("Peso Inferior")
+    elif imc<24.9:
+      return("Normal")
+    elif imc<29.9:
+      return("Sobrepeso")
+    elif imc<34.9:
+      return("Obesidad")
+    else:
+      return("Obesidad Extrema")
+
+p1 = Atleta("Fran", "Di Martino", 1.85, 93, 2804290162)
+print(p1.getImc())
+print(p1)  #Str
+p1.mostrar()
 
