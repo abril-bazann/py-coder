@@ -412,3 +412,25 @@ print(adm)
 Herencias Múltiples:
 Hemos visto cómo se podía crear una clase padre que heredaba de una clase hija, pudiendo hacer uso de sus métodos y atributos. La herencia múltiple es similar, pero una clase hereda de varias clases padre en vez de una sola.
 '''
+class Clase1: 
+  def jugar(self):
+    print("jugar")
+  def bailar(self):
+    print("hola estoy bailando")
+
+class Clase2:
+  def bailar(self):
+    print("bailar")
+  
+
+class Clase3(Clase1, Clase2):  #La clase 3 hereda de la 1 y de la 2 O__O
+  atributo="hola"
+
+ejemplo=Clase3()
+ejemplo.jugar()
+ejemplo.bailar() #primer bailar
+print(ejemplo.atributo)
+
+print(Clase3.__mro__) 
+'''método mro: me dice el orden en el cual se van a llamar las clases '''
+#el problema del diamante se resulve con mro
