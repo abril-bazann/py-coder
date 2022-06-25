@@ -562,7 +562,7 @@ class Animal_Marino():
 class Cetaceo(Mamifero, Animal_Marino):
   def __init__(self, notas,viven_en,peso, longitud, cantidad_mamas, esperanza_vida, tiene_branqueas, especie):
     Mamifero.__init__(cantidad_mamas, esperanza_vida) #super(Mamifero, self).__init__(cantidad_mamas, esperanza_vida)
-    Animal_Marino.__init__(tiene_branqueas, especie)   #super(Animal_Marino, self).__init__(tiene_branqueas, especie)
+    Animal_Marino.__init__(tiene_branqueas, especie) #super(Animal_Marino, self).__init__(tiene_branqueas, especie)
 
     self.notas=notas
     self.viven_en=viven_en
