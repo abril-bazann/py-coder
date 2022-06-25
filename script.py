@@ -539,3 +539,49 @@ El duck typing está en todos lados, desde la función len() hasta el uso del op
 
 Al ser un lenguaje con tipado dinámico y permitir duck typing, en Python no es necesario que los objetos compartan un interfaz, simplemente basta con que tengan los métodos que se quieren llamar.
 '''
+
+class Mamifero():
+  def __init__(self,cant_mamas,esperanza_de_vida):
+    self.cant_mamas=cant_mamas
+    self.esperanza_de_vida=esperanza_de_vida
+
+  def mamar(self):
+    print("Los mamíferos dan de mamar a sus crías")
+
+  def nacer(self):
+    print("Los mamíferos nacen por parto")
+
+class Animal_Marino():
+  def __init__(self,tiene_branquias,especie):
+    self.tiene_branquias=tiene_branquias
+    self.especie=especie
+
+  def nadar(self):
+    print("Los animales marinos viven nadando")
+
+class Cetaceo(Mamifero, Animal_Marino):
+  def __init__(self, notas,viven_en,peso, longitud, cantidad_mamas, esperanza_vida, tiene_branqueas, especie):
+    Mamifero.__init__(cantidad_mamas, esperanza_vida) #super(Mamifero, self).__init__(cantidad_mamas, esperanza_vida)
+    Animal_Marino.__init__(tiene_branqueas, especie)   #super(Animal_Marino, self).__init__(tiene_branqueas, especie)
+
+    self.notas=notas
+    self.viven_en=viven_en
+    self.peso=peso
+    self.longitud=longitud
+
+  def nacer(self):
+    print("Los Cetáceos nacen como los mamíferos")
+
+  def nadar(self):
+    print("Los cetáceos nadan como los animales marinos")
+
+#imprimo el mro para saber en que orden se van a buscar los metodos de las clases padres NO ES NECESARIO PARA CORRER EL PROGRAMA
+print(Cetaceo.__mro__)
+#(self, notas,viven_en,peso, longitud, cantidad_mamas, esperanza_vida, tiene_branqueas, especie)
+ballena=Cetaceo("Misticetos más pequeños","océanos",3500)
+ballena.nacer()
+ballena.nadar()
+#(self, notas,viven_en,peso, longitud, cantidad_mamas, esperanza_vida, tiene_branqueas, especie)
+cachalote=Cetaceo("Odontoceto más grande","Preferentemente en aguas no congeladas y con profundidad de hasta 1000 metros",13500)
+cachalote.nacer()
+cachalote.nadar()
