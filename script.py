@@ -395,3 +395,20 @@ empleado1 = Empleado("Rodrigo", "Nicolau", 38, 1999.80, "Jefe")
 empleado1.mostrar()
 print(empleado1) #<__main__.Empleado object at 0x0000016B9CA4E5F0>
 
+#Ejemplo integrador
+class EmpleadoAdministrativo(Empleado):
+
+  def __init__(self, nomP, apeP, edadP, sue, car, area):
+    super().__init__(nomP, apeP, edadP, sue, car )
+    self.area=area
+
+  def mostrar(self):
+    super(Empleado, self).mostrar()
+
+adm=EmpleadoAdministrativo("fr","di",13,100,"sysadmin","info")
+print(adm)
+
+'''
+Herencias Múltiples:
+Hemos visto cómo se podía crear una clase padre que heredaba de una clase hija, pudiendo hacer uso de sus métodos y atributos. La herencia múltiple es similar, pero una clase hereda de varias clases padre en vez de una sola.
+'''
