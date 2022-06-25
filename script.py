@@ -379,8 +379,8 @@ class Empleado(Persona): #Sueldo, cargo
     self.sueldo = sue
     self.cargo = car
     
-  #def __str__(self):
-      #return f"-----------> {self.sueldo} --- {self.cargo}"
+  def __str__(self):
+    return f"-----------> {self.sueldo} --- {self.cargo}"
   
   
   def mostrar(self):
