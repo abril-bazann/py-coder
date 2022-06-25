@@ -475,3 +475,67 @@ lista.append(obrero1)
 #por cada elemento de mi lista, q tiene una persona y un obrero, llama a ver_mensaje(elemento)
 for elemento in lista:
   ver_mensaje(elemento)
+
+#clase animal
+class Animal():
+  def hablar(self):
+    print("Soy un Animal")
+
+#clase hijas de animal
+class Perro(Animal):
+  def hablar(self):
+    super().hablar()
+    print("Guau guau")
+
+class Gato(Animal):
+  def hablar(self):
+    print("Miau")
+
+
+class Pato(Animal):
+  def hablar(self):
+    super().hablar()
+    print("Cuack!")
+
+#clase no hija de animal pero tambien tiene el método hablar
+class Persona():
+  def hablar(self):
+    print("estoy hablando")
+
+perrito=Perro()
+gatito=Gato()
+patito=Pato()
+animalito=Animal()
+personita=Persona()
+
+lista=[perrito, gatito, patito, animalito, personita]
+
+
+for variable in lista:
+  variable.hablar()
+
+'''
+Soy un Animal
+Guau guau
+Miau
+Soy un Animal
+Cuack!
+Soy un Animal
+estoy hablando
+'''
+
+'''
+El término polimorfismo visto desde el punto de vista de Python es complicado de explicar sin hablar del duck typing. Es un concepto que aplica a ciertos lenguajes orientados a objetos y que tiene origen en la siguiente frase:
+If it walks like a duck and it quacks like a duck, then it must be a duck
+(Si camina como un pato y habla como un pato, entonces tiene que ser un pato)
+
+si un determinado objeto tiene los métodos que nos interesan, nos basta, siendo su tipo irrelevante.
+
+Una vez entendido el origen del concepto, veamos lo que realmente significa esto en Python. En pocas palabras, a Python le dan igual los tipos de los objetos, lo único que le importan son los métodos.
+
+Python es un lenguaje que soporta el duck typing, lo que hace que el tipo de los objetos no sea tan relevante, siendo más importante lo que sus métodos pueden hacer. 
+Otros lenguajes como Java, no soportan el duck typing, pero se puede conseguir un comportamiento similar cuando los objetos comparten un interfaz (si existe herencia entre ellos). Este concepto relacionado es el polimorfismo.
+El duck typing está en todos lados, desde la función len() hasta el uso del operador * 
+
+Al ser un lenguaje con tipado dinámico y permitir duck typing, en Python no es necesario que los objetos compartan un interfaz, simplemente basta con que tengan los métodos que se quieren llamar.
+'''
