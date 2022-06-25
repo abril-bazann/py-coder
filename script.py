@@ -343,3 +343,55 @@ print(p1.getImc())
 print(p1)  #Str
 p1.mostrar()
 
+#Herencias
+class Persona:
+
+    tipo = "Humano"  #Dato al que pueden acceder  PUBLICO
+    
+
+    def __init__(self, nombre, apellido, edad):
+        self.nombre = nombre  #NO me molesta que sepan mi nombre  PUBLICO
+        self.__apellido = apellido #No quiero que sepan mi apellido  PRIVADO
+        self.__edad=edad
+
+    def __soy_feliz(self):   #PRIVADO
+        print("No les importa ¬¬")
+
+    def getEdad(self):   
+        return self.__edad 
+        
+    def getApellido(self):   
+        return self.__apellido
+
+    def setApellido(self, apellidoNuevo):
+      self.__apellido=apellidoNuevo
+
+    def mostrar(self):
+      print("Soy una persona")
+
+#clase Empleado
+class Empleado(Persona): #Sueldo, cargo
+
+  #Atributos - constructor , las cosas del padre, las cosas del hijo
+  def __init__(self, nomP, apeP, edadP, sue, car):
+    #con el método super() llamo a mi clase Padre y debe tener este orden:
+    super().__init__(nomP, apeP, edadP) #método de clases
+    self.sueldo = sue
+    self.cargo = car
+    
+  #def __str__(self):
+      #return f"-----------> {self.sueldo} --- {self.cargo}"
+  
+  
+  def mostrar(self):
+      super().mostrar()
+      print(f"SUELDO: {self.sueldo} --- CARGO: {self.cargo}")
+  
+
+
+  #Metodos
+
+empleado1 = Empleado("Rodrigo", "Nicolau", 38, 1999.80, "Jefe")
+empleado1.mostrar()
+print(empleado1) #<__main__.Empleado object at 0x0000016B9CA4E5F0>
+
