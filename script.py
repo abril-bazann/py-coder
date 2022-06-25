@@ -434,3 +434,44 @@ print(ejemplo.atributo)
 print(Clase3.__mro__) 
 '''método mro: me dice el orden en el cual se van a llamar las clases '''
 #el problema del diamante se resulve con mro
+
+#polimorfismo
+'''
+La técnica de polimorfismo de la POO significa la capacidad de tomar más de una forma. Una operación puede presentar diferentes comportamientos en diferentes instancias.
+
+El comportamiento depende de los tipos de datos utilizados en la operación. El polimorfismo es ampliamente utilizado en la aplicación de la herencia.
+
+¿Para qué?
+
+Te permite sustituir un método proveniente de la Clase Padre, en la Clase Hija. Se debe definir un método con el mismo nombre, y parámetros, pero debe tomar otra conducta.
+
+Es básicamente lo que veníamos haciendo sin saber que se llamaba Polimorfismo.
+'''
+
+class Persona():
+     def __init__(self):
+         self.dni = 13765890
+     def mensaje(self):
+         print("mensaje desde la clase Persona")
+
+class Obrero(Persona): #clase hija, subclase
+      def __init__(self):
+        self.__especialista = 1
+      def mensaje(self):  
+        #Aquí tenemos al método Polimórfico. mismo método pero REDEFINIDO
+        print("mensaje desde la clase Obrero")
+
+persona1 = Persona()
+obrero1 = Obrero()
+obrero1.mensaje() #mensaje desde la clase Obrero
+
+#a todas las cosas que yo le mande, les pide un mensaje a todas.
+def ver_mensaje(cosa):
+   cosa.mensaje()
+#creo lista vacía y dos append.
+lista=[]
+lista.append(persona1)
+lista.append(obrero1)
+#por cada elemento de mi lista, q tiene una persona y un obrero, llama a ver_mensaje(elemento)
+for elemento in lista:
+  ver_mensaje(elemento)
